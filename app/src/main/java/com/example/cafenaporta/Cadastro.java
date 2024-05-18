@@ -24,10 +24,10 @@ public class Cadastro extends AppCompatActivity {
         setContentView(R.layout.activity_cadastro);
 
 
-        editNome = findViewById(R.id.EditNome);
-        editEmail = findViewById(R.id.EditEmail);
-        editTelefone = findViewById(R.id.EditTelefone);
-        editSenha = findViewById(R.id.EditSenha);
+        editNome = findViewById(R.id.textNome);
+        editEmail = findViewById(R.id.textEmail);
+        editTelefone = findViewById(R.id.textTelefone);
+        editSenha = findViewById(R.id.textSenha);
         textlogin = findViewById(R.id.textLogin);
         btnCadastrar = findViewById(R.id.btnCadastrar);
 

@@ -3,6 +3,7 @@ package com.example.cafenaporta.database;
 import androidx.room.Dao;
 import androidx.room.Insert;
 import androidx.room.Query;
+import androidx.room.Transaction;
 
 import java.util.List;
 
@@ -17,6 +18,13 @@ public interface UsuarioDao {
     @Query("SELECT * from usuario")
     public List<Usuario> getAll();
 
+    @Transaction
+    @Query("SELECT * FROM Usuario")
+    List<UsuarioPedido> getUsuariosWithPedidos();
+
     @Insert
     public void insereUsuario(Usuario usuario);
+
+    @Insert
+    void insertPedido(Pedido pedido);
 }

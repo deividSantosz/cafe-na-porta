@@ -10,6 +10,7 @@ import java.util.List;
         parentColumns = "id",
         childColumns = "userId",
         onDelete = ForeignKey.CASCADE))
+
 public class Pedido {
 
     @PrimaryKey(autoGenerate = true)

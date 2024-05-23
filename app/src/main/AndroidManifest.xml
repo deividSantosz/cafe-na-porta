@@ -13,6 +13,12 @@
         android:theme="@style/Theme.CafeNaPorta"
         tools:targetApi="31">
         <activity
+            android:name=".Carrinho"
+            android:exported="false" />
+        <activity
+            android:name=".DetalhesProduto"
+            android:exported="false" />
+        <activity
             android:name=".Perfil"
             android:exported="false" />
         <activity

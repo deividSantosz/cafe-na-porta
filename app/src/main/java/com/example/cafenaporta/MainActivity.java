@@ -33,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
 
         editEmail = findViewById(R.id.text_email);
         editSenha = findViewById(R.id.text_senha);
-        btn_entrar = findViewById(R.id.btn_entrar);
+        btn_entrar = findViewById(R.id.btn_adicionar_carrinho);
         btn_cadastro = findViewById(R.id.btn_cadastro);
 
         btn_entrar.setOnClickListener((View view) -> {
@@ -46,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void logar() {
-        if(validarCampos() == false) {
+      /*  if(validarCampos() == false) {
             return;
         }
         String email = editEmail.getText().toString();
@@ -54,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
         if (validarLogin(email, senha) ==false) {
             Toast.makeText(this,"Dados de login incorretos",Toast.LENGTH_LONG).show();
             return;
-        }
+        }*/
         Intent intent = new Intent(this, Menu.class);
         startActivity(intent);
     }

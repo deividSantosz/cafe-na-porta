@@ -8,7 +8,7 @@ import com.example.cafenaporta.R;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Produto {
+public class Produto  {
         @PrimaryKey(autoGenerate = true)
         public int id;
         @ColumnInfo

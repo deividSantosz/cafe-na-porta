@@ -1,11 +1,7 @@
 package com.example.cafenaporta.telaPrincipal;
-import static androidx.constraintlayout.helper.widget.MotionEffect.TAG;
 
 import android.content.Context;
 import android.content.Intent;
-import android.nfc.Tag;
-import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,7 +10,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.cafenaporta.DetalhesProduto;
 import com.example.cafenaporta.R;
-import com.example.cafenaporta.database.ItensPedido;
 import com.example.cafenaporta.database.Produto;
 
 
@@ -27,6 +22,7 @@ public class MenuAdapter extends RecyclerView.Adapter<LineViewHolder> {
     // lista global de entidade
     private final List<Produto> listaProdutos;
     private Context activityContext;
+
     // contrutor que recebe a lista de entidades
     public MenuAdapter(List<Produto> listaProdutos, Context activityContext){
         this.listaProdutos = listaProdutos;

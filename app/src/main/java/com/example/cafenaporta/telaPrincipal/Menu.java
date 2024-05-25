@@ -1,4 +1,4 @@
-package com.example.cafenaporta;
+package com.example.cafenaporta.telaPrincipal;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -9,14 +9,14 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.SearchView;
+
+import com.example.cafenaporta.Favoritos;
+import com.example.cafenaporta.Perfil;
+import com.example.cafenaporta.R;
 import com.example.cafenaporta.database.Produto;
-import com.example.cafenaporta.telaPrincipal.MenuAdapter;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import java.util.List;
 import java.util.ArrayList;
-
-
-import java.util.List;
 
 public class Menu extends AppCompatActivity {
 

@@ -12,6 +12,7 @@ import android.widget.TextView;
 
 import com.example.cafenaporta.database.Database;
 import com.example.cafenaporta.database.Usuario;
+import com.example.cafenaporta.telaPrincipal.Menu;
 
 public class Cadastro extends AppCompatActivity {
 

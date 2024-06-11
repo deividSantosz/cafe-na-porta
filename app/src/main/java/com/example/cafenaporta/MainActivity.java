@@ -33,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
 
         editEmail = findViewById(R.id.text_email);
         editSenha = findViewById(R.id.text_senha);
-        btn_entrar = findViewById(R.id.btn_adicionar_carrinho);
+        btn_entrar = findViewById(R.id.btn_confirmar_entrega);
         btn_cadastro = findViewById(R.id.btn_cadastro);
 
         btn_entrar.setOnClickListener((View view) -> {

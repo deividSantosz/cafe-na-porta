@@ -8,7 +8,7 @@
     tools:context=".Pagamento">
 
     <ImageView
-        android:id="@+id/imageView8"
+        android:id="@+id/img_voltar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -53,31 +53,46 @@
         app:layout_constraintTop_toTopOf="parent" />
 
 
-    <RadioGroup
-        android:id="@+id/rg_payment_method"
-        android:layout_width="238dp"
-        android:layout_height="96dp"
-        android:layout_marginTop="60dp"
-        android:orientation="vertical"
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardview_payment"
+        android:layout_width="265dp"
+        android:layout_height="136dp"
+        android:layout_margin="16dp"
+        android:background="@color/cards"
+        app:cardBackgroundColor="@color/cards"
+        app:cardCornerRadius="8dp"
+        app:cardElevation="4dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintHorizontal_bias="0.506"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView15">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.455">
 
-        <!-- Opção de Cartão de Crédito -->
-        <RadioButton
-            android:id="@+id/rb_credit_card"
-            android:layout_width="wrap_content"
+        <!-- Grupo de Botões de Rádio dentro do CardView -->
+        <RadioGroup
+            android:id="@+id/rg_metodo_entrega"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Cartão de Crédito" />
+            android:orientation="vertical">
 
-        <!-- Opção de Pix -->
-        <RadioButton
-            android:id="@+id/rb_pix"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Pix" />
-    </RadioGroup>
+            <!-- Opção de Receber em Casa -->
+            <RadioButton
+                android:id="@+id/rb_entrega"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Cartão de credito"
+                android:textColor="@color/principal" />
+
+            <!-- Opção de Retirada -->
+            <RadioButton
+                android:id="@+id/rb_retirada"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Pix"
+                android:textColor="@color/principal" />
+        </RadioGroup>
+    </androidx.cardview.widget.CardView>
 
     <ImageView
         android:id="@+id/imageView9"
@@ -93,7 +108,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginBottom="192dp"
+        android:layout_marginBottom="200dp"
         android:text="Total:"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -110,19 +125,8 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
-    <TextView
-        android:id="@+id/textView16"
-        android:layout_width="23dp"
-        android:layout_height="22dp"
-        android:layout_marginEnd="72dp"
-        android:text="R$"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.717" />
-
     <Button
-        android:id="@+id/btn_adicionar_carrinho"
+        android:id="@+id/btn_confirmar_entrega"
         android:layout_width="310dp"
         android:layout_height="73dp"
         android:layout_marginBottom="68dp"

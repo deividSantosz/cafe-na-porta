@@ -1,6 +1,7 @@
 package com.example.cafenaporta.database;
 
 import androidx.room.ColumnInfo;
+import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
 import com.example.cafenaporta.R;
@@ -8,7 +9,10 @@ import com.example.cafenaporta.R;
 import java.util.ArrayList;
 import java.util.List;
 
+@Entity
 public class Produto  {
+
+
         @PrimaryKey(autoGenerate = true)
         public int id;
         @ColumnInfo

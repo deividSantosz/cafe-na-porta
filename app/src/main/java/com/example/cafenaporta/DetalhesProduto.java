@@ -13,8 +13,9 @@ import android.widget.TextView;
 import android.view.animation.ScaleAnimation;
 
 import com.example.cafenaporta.carrinho.Carrinho;
-import com.example.cafenaporta.classesAuxiliares.Favorito;
 import com.example.cafenaporta.classesAuxiliares.ItemCarrinho;
+import com.example.cafenaporta.database.Pedido;
+import com.example.cafenaporta.singleton.PedidoSingleton;
 import com.example.cafenaporta.singleton.UsuarioSingleton;
 
 public class DetalhesProduto extends AppCompatActivity {
@@ -38,7 +39,7 @@ public class DetalhesProduto extends AppCompatActivity {
         img_produto = findViewById(R.id.img_produto);
         txt_descricao = findViewById(R.id.txt_descricao);
         img_back = findViewById(R.id.img_back);
-        btn_adicionar_carrinho = findViewById(R.id.btn_adicionar_carrinho);
+        btn_adicionar_carrinho = findViewById(R.id.btn_confirmar_entrega);
         img_favorito = findViewById(R.id.img_favorito);
 
         Intent intent = getIntent();
@@ -50,7 +51,7 @@ public class DetalhesProduto extends AppCompatActivity {
         ItemCarrinho item = new ItemCarrinho(imagem, nome, preco);
         img_produto.setImageResource(imagem);
         txt_nome_produto.setText(nome);
-        txt_preco_produto.setText(String.valueOf(preco));
+        txt_preco_produto.setText(String.format("Preço: R$ %.2f", preco));
         txt_descricao.setText(descricao);
         UsuarioSingleton singleton = UsuarioSingleton.getInstance();
         if (!singleton.isFavorito(item)) {
@@ -61,14 +62,16 @@ public class DetalhesProduto extends AppCompatActivity {
         }
 
         btn_adicionar_carrinho.setOnClickListener((View view) ->{
+
             Intent intent_carrinho = new Intent(this, Carrinho.class);
 
             // Adicione os dados do produto à Intent
             intent_carrinho.putExtra("imagem", imagem);
             intent_carrinho.putExtra("nome", nome);
             intent_carrinho.putExtra("preco", preco);
-
             // Inicie a nova atividade com a Intent que contém os dados
+
+            Pedido pedido = PedidoSingleton.getInstance();
             startActivity(intent_carrinho);
         });
 

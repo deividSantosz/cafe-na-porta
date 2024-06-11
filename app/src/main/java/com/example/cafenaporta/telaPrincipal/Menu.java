@@ -4,6 +4,8 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.room.Room;
+
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
@@ -13,6 +15,7 @@ import android.widget.SearchView;
 import com.example.cafenaporta.Favoritos;
 import com.example.cafenaporta.Perfil;
 import com.example.cafenaporta.R;
+import com.example.cafenaporta.database.Database;
 import com.example.cafenaporta.database.Produto;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import java.util.List;
@@ -61,6 +64,11 @@ public class Menu extends AppCompatActivity {
     }
 
     public List<Produto> ProdutosIniciais() {
+
+        Database db = Room.databaseBuilder(getApplicationContext(),Database.class,"Cafe na porta BD")
+                .allowMainThreadQueries()
+                .fallbackToDestructiveMigration()
+                .build();
         List<Produto> list = new ArrayList<>();
         Produto cappucinoAvela = new Produto();
         Produto cappucinoComChocolate = new Produto();
@@ -70,7 +78,7 @@ public class Menu extends AppCompatActivity {
 
         cappucinoAvela.categoria = "cappucino";
         cappucinoAvela.nome = "Cappucino com Avelã";
-        cappucinoAvela.descricao = "confere o real autêntico sabor do café com um toque de avelã. " +
+        cappucinoAvela.descricao = "Confere o real autêntico sabor do café com um toque de avelã. " +
                 "Com formulação rica em leite integral e sem corantes, tem ótimo rendimento, cremosidade e textura aveludada.";
         cappucinoAvela.imagem = R.drawable.cappucino_avela;
         cappucinoAvela.preco = 10.00;
@@ -95,6 +103,14 @@ public class Menu extends AppCompatActivity {
                 "um terço de leite vaporizado e um terço de espuma de leite vaporizado";
         cappucinoBanana.imagem = R.drawable.cappucino_banana;
         cappucinoBanana.preco = 12.00;
+
+        if (db.getProdutoDao().getAll().isEmpty()) {
+
+            db.getProdutoDao().insertProduto(cappucinoAvela);
+            db.getProdutoDao().insertProduto(cappucinoComChocolate);
+            db.getProdutoDao().insertProduto(cappucinoCremeso);
+            db.getProdutoDao().insertProduto(cappucinoBanana);
+        }
 
         list.add(cappucinoAvela);
         list.add(cappucinoComChocolate);

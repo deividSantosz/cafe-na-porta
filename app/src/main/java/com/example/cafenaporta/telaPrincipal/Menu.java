@@ -80,28 +80,28 @@ public class Menu extends AppCompatActivity {
         cappucinoAvela.nome = "Cappucino com Avelã";
         cappucinoAvela.descricao = "Confere o real autêntico sabor do café com um toque de avelã. " +
                 "Com formulação rica em leite integral e sem corantes, tem ótimo rendimento, cremosidade e textura aveludada.";
-        cappucinoAvela.imagem = R.drawable.cappucino_avela;
+        cappucinoAvela.imagem = R.drawable.cappucino_avela3;
         cappucinoAvela.preco = 10.00;
 
         cappucinoComChocolate.categoria = "cappucino";
         cappucinoComChocolate.nome = "Cappucino com chocolate";
         cappucinoComChocolate.descricao = "O sabor é doce, com suaves notas de café e uma pitada de canela que irá conquistar seu paladar. " +
                 "Ideal para uma pausa para o coffee. Aproveite!";
-        cappucinoComChocolate.imagem = R.drawable.cappucino_com_chocolate;
+        cappucinoComChocolate.imagem = R.drawable.cappucino_com_chocolate3;
         cappucinoComChocolate.preco = 15.00;
 
         cappucinoCremeso.categoria = "cappucino";
         cappucinoCremeso.nome = "Cappucino cremoso";
         cappucinoCremeso.descricao = "O Cappuccino Amiste Café apresenta uma formulação exclusiva, " +
-                "Cuidadosamente desenvolvida para proporcionar um cappuccino saboroso e com textura cremosa. ";
-        cappucinoCremeso.imagem = R.drawable.cappucino_cremoso;
+                "cuidadosamente desenvolvida para proporcionar um cappuccino saboroso e com textura cremosa. ";
+        cappucinoCremeso.imagem = R.drawable.cappucino_cremoso2;
         cappucinoCremeso.preco = 11.00;
 
         cappucinoBanana.categoria = "cappucino";
         cappucinoBanana.nome = "Cappucino com banana";
         cappucinoBanana.descricao = "Um cappuccino clássico, muito famoso no Brasil, consiste em um terço de café expresso, " +
                 "um terço de leite vaporizado e um terço de espuma de leite vaporizado";
-        cappucinoBanana.imagem = R.drawable.cappucino_banana;
+        cappucinoBanana.imagem = R.drawable.cappucino_banana2;
         cappucinoBanana.preco = 12.00;
 
         if (db.getProdutoDao().getAll().isEmpty()) {

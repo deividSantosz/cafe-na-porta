@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">CafeNaPorta</string>
+    <!-- Poppins Regular -->
+    <string name="texto">res/font/poppins/</string>
+
+    <!-- Poppins Bold -->
+    <string name="titulo">res/font/poppins_bold</string>
+
 </resources>

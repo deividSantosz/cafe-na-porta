@@ -30,6 +30,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="60dp"
+        android:fontFamily="@font/poppins_bold"
         android:text="Pagamento"
         android:textColor="@color/principal"
         android:textSize="26sp"
@@ -44,6 +45,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="196dp"
+        android:fontFamily="@font/poppins"
         android:text="Metodo de pagamento:"
         android:textColor="@color/principal"
         android:textSize="26sp"
@@ -81,6 +83,7 @@
                 android:id="@+id/rb_entrega"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins"
                 android:text="Cartão de credito"
                 android:textColor="@color/principal" />
 
@@ -89,6 +92,7 @@
                 android:id="@+id/rb_retirada"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins"
                 android:text="Pix"
                 android:textColor="@color/principal" />
         </RadioGroup>
@@ -109,6 +113,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginBottom="200dp"
+        android:fontFamily="@font/poppins"
         android:text="Total:"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -120,6 +125,7 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="200dp"
+        android:fontFamily="@font/poppins"
         android:text="preco"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -131,8 +137,10 @@
         android:layout_height="73dp"
         android:layout_marginBottom="68dp"
         android:backgroundTint="@color/principal"
+        android:fontFamily="@font/poppins"
         android:text="Confirmar"
         android:textSize="25dp"
+        app:cornerRadius="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.633"

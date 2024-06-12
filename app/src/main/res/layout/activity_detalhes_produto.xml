@@ -9,30 +9,28 @@
 
     <ImageView
         android:id="@+id/img_produto"
-        android:layout_width="410dp"
-        android:layout_height="308dp"
+        android:layout_width="0dp"
+        android:layout_height="300dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.004"
-        app:srcCompat="@drawable/cappucino_banana" />
+        app:srcCompat="@drawable/cappucino_banana2" />
 
     <TextView
         android:id="@+id/txt_nome_produto"
-        android:layout_width="408dp"
+        android:layout_width="395dp"
         android:layout_height="41dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="316dp"
+        android:fontFamily="@font/poppins_bold"
         android:text="Nome do produto"
         android:textColor="@color/principal"
         android:textSize="30sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.272"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/img_produto" />
+        app:layout_constraintTop_toBottomOf="@+id/img_produto" />
 
     <TextView
         android:id="@+id/txt_preco_produto"
@@ -40,11 +38,13 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="12dp"
         android:layout_marginBottom="344dp"
+        android:fontFamily="@font/poppins"
         android:text="Preco"
         android:textColor="@color/principal"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt_nome_produto" />
 
     <ImageView
         android:id="@+id/img_favorito"
@@ -54,15 +54,20 @@
         android:layout_marginBottom="348dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt_nome_produto"
         app:srcCompat="@drawable/baseline_favorite_border_24" />
 
     <EditText
         android:id="@+id/txt_descricao"
-        android:layout_width="393dp"
-        android:layout_height="144dp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
         android:layout_marginBottom="184dp"
+        android:background="@null"
         android:ems="10"
         android:enabled="true"
+        android:fontFamily="@font/poppins"
         android:gravity="start|top"
         android:inputType="textMultiLine"
         android:maxLines="4"
@@ -70,17 +75,22 @@
         android:singleLine="false"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.833"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt_nome_produto"
+        app:layout_constraintVertical_bias="0.739" />
+
 
     <Button
         android:id="@+id/btn_confirmar_entrega"
-        android:layout_width="310dp"
-        android:layout_height="73dp"
+        android:layout_width="346dp"
+        android:layout_height="77dp"
         android:layout_marginBottom="44dp"
         android:backgroundTint="@color/principal"
-        android:text="Adicionar ao Carrinho"
+        android:fontFamily="@font/poppins"
+        android:text="Adicionar ao carrinho"
         android:textSize="25dp"
+        app:cornerRadius="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"

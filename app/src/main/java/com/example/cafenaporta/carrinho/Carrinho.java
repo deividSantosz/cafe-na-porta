@@ -55,7 +55,7 @@ public class Carrinho extends AppCompatActivity {
 
         img_back = findViewById(R.id.img_back);
         btn_continuar_comprando = findViewById(R.id.btn_continuar_comprando);
-        txt_total = findViewById(R.id.txt_total);
+        txt_total = findViewById(R.id.txt_total_entrega);
         btn_confirmar = findViewById(R.id.btn_confirmar_entrega);
 
         txt_total.setText(String.format(" R$ %.2f", total));

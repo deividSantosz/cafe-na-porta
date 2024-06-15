@@ -15,6 +15,7 @@ import android.view.animation.ScaleAnimation;
 import com.example.cafenaporta.carrinho.Carrinho;
 import com.example.cafenaporta.classesAuxiliares.ItemCarrinho;
 import com.example.cafenaporta.database.Pedido;
+import com.example.cafenaporta.singleton.ItemPedidoSingleton;
 import com.example.cafenaporta.singleton.PedidoSingleton;
 import com.example.cafenaporta.singleton.UsuarioSingleton;
 
@@ -26,7 +27,7 @@ public class DetalhesProduto extends AppCompatActivity {
     TextView txt_nome_produto, txt_preco_produto;
     EditText txt_descricao;
     Button btn_adicionar_carrinho;
-
+    int id;
     private boolean isFavorited = false;
     @SuppressLint("MissingInflatedId")
     @Override
@@ -46,6 +47,7 @@ public class DetalhesProduto extends AppCompatActivity {
          imagem = intent.getIntExtra("imagem", 0); // 0 é o valor padrão se a chave não for encontrada
          nome = intent.getStringExtra("nome");
          preco = intent.getDoubleExtra("preco", 0.0); // 0.0 é o valor padrão se a chave não for encontrada
+         id = intent.getIntExtra("id", 0);
          String descricao = intent.getStringExtra("descricao");
 
         ItemCarrinho item = new ItemCarrinho(imagem, nome, preco);
@@ -70,7 +72,8 @@ public class DetalhesProduto extends AppCompatActivity {
             intent_carrinho.putExtra("nome", nome);
             intent_carrinho.putExtra("preco", preco);
             // Inicie a nova atividade com a Intent que contém os dados
-
+            ItemPedidoSingleton itemPedidoSingleton = ItemPedidoSingleton.getInstance();
+            itemPedidoSingleton.setProdutoId(id);
             Pedido pedido = PedidoSingleton.getInstance();
             startActivity(intent_carrinho);
         });

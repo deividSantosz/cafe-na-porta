@@ -41,17 +41,19 @@ public class MenuAdapter extends RecyclerView.Adapter<LineViewHolder> {
         int imagem = listaProdutos.get(position).imagem;
         holder.imgCafe.setImageResource(imagem);
         holder.txtNomeCafe.setText(listaProdutos.get(position).nome);
-        holder.txtPrecoCafe.setText(String.valueOf(listaProdutos.get(position).preco));
+
+        String precoFormatado = String.format("%.2f", listaProdutos.get(position).preco);
+        holder.txtPrecoCafe.setText(precoFormatado);
 
         holder.imgCafe.setOnClickListener((View view) -> {
             Intent intent = new Intent(activityContext, DetalhesProduto.class);
-// Adicionar os dados diretamente à Intent
             intent.putExtra("imagem", listaProdutos.get(position).imagem);
+            intent.putExtra("id", listaProdutos.get(position).id);
             intent.putExtra("nome", listaProdutos.get(position).nome);
             intent.putExtra("preco", listaProdutos.get(position).preco);
             intent.putExtra("descricao", listaProdutos.get(position).descricao);
 
-// Iniciar a nova atividade
+
             activityContext.startActivity(intent);
         });
 

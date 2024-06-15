@@ -11,6 +11,7 @@ import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.cafenaporta.singleton.ItemPedidoSingleton;
 import com.example.cafenaporta.singleton.PedidoSingleton;
@@ -29,7 +30,7 @@ public class Pagamento extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pagamento);
-        txt_total = findViewById(R.id.txt_total);
+        txt_total = findViewById(R.id.txt_total_entrega);
         btn_confirmar = findViewById(R.id.btn_confirmar_entrega);
         metodo_pagamento = findViewById(R.id.rg_metodo_entrega);
         img_voltar = findViewById(R.id.img_voltar);
@@ -39,11 +40,9 @@ public class Pagamento extends AppCompatActivity {
         Double total = intent.getDoubleExtra("Total", 0.0);
         txt_total.setText(String.format(" R$ %.2f", total));
 
-        // Obtendo o preço calculado do ItemPedidoSingleton
-        double precoCalculado = ItemPedidoSingleton.getInstance().calculartotal();
 
 //          Definindo o total no PedidoSingleton
-        PedidoSingleton.getInstance().setTotal(precoCalculado);
+        PedidoSingleton.getInstance().setTotal(total);
 
 
         btn_confirmar.setOnClickListener((View view) -> {
@@ -60,10 +59,11 @@ public class Pagamento extends AppCompatActivity {
 
                 // Iniciar a atividade de Entrega
                 Intent intent2 = new Intent(this, Entrega.class);
+                intent2.putExtra("precoCalculado", total);
                 startActivity(intent2);
             } else {
                 // Caso nenhum RadioButton tenha sido selecionado
-                // Exibir uma mensagem ou tomar outra ação adequada
+                Toast.makeText(this, "Selecione uma opção de pagamento", Toast.LENGTH_SHORT).show();
             }
         });
 

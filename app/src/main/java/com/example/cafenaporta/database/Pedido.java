@@ -18,11 +18,15 @@ public class Pedido {
 
     public Double total;
 
-    public String  endereco;
+    public String endereco;
 
     public String metodo_pagamento;
 
     public int userId;
+
+    public String status_pedido;
+
+
 
     public Double getTotal() {
         return total;
@@ -46,5 +50,13 @@ public class Pedido {
 
     public void setMetodo_pagamento(String metodo_pagamento) {
         this.metodo_pagamento = metodo_pagamento;
+    }
+
+    public String getStatus_pedido() {
+        return status_pedido;
+    }
+
+    public void setStatus_pedido(String status_pedido) {
+        this.status_pedido = status_pedido;
     }
 }

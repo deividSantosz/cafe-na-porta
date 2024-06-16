@@ -65,7 +65,7 @@ public class Entrega extends AppCompatActivity {
                 Toast.makeText(this, "Selecione uma opção de entrega", Toast.LENGTH_SHORT).show();
             }
             if (radioButtonId == R.id.rb_entrega) {
-                RadioButton opcaoSelecionada = findViewById(radioButtonId);
+               // RadioButton opcaoSelecionada = findViewById(radioButtonId);
 
                 if (editText_endereco.getText().toString().trim().isEmpty()) {
                     Toast.makeText(this, "Digite um endereço", Toast.LENGTH_SHORT).show();

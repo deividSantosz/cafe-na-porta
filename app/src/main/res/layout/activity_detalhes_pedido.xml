@@ -26,106 +26,57 @@
 
         <TextView
             android:id="@+id/tv_titulo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="44dp"
+            android:layout_width="265dp"
+            android:layout_height="75dp"
+            android:layout_marginTop="32dp"
             android:fontFamily="@font/poppins_bold"
             android:paddingBottom="16dp"
             android:text="Detalhes do pedido"
             android:textSize="24sp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.109"
+            app:layout_constraintHorizontal_bias="0.092"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@id/imageView8" />
 
-        <ImageView
-            android:id="@+id/imageView10"
-            android:layout_width="164dp"
-            android:layout_height="132dp"
-            app:layout_constraintStart_toEndOf="@+id/tv_titulo"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/logo" />
-
         <!-- View de preenchimento para ocupar o espaço restante -->
 
-        <androidx.cardview.widget.CardView
-            android:id="@+id/item_carrinho"
-            android:layout_width="350dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="32dp"
-            android:background="@color/cards"
-            android:padding="16dp"
-            app:cardBackgroundColor="@color/cards"
-            app:cardCornerRadius="8dp"
-            app:cardElevation="4dp"
+        <ImageView
+            android:id="@+id/imageView10"
+            android:layout_width="133dp"
+            android:layout_height="128dp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_titulo">
-
-            <!-- Envolva os componentes do CardView em um ConstraintLayout -->
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
-                <ImageView
-                    android:id="@+id/imageView11"
-                    android:layout_width="76dp"
-                    android:layout_height="76dp"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:srcCompat="@drawable/cappucino_cremoso2" />
-
-                <TextView
-                    android:id="@+id/txt_produto"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="40dp"
-                    android:layout_marginTop="4dp"
-                    android:fontFamily="@font/poppins"
-                    android:text="Cappucino com banana"
-                    android:textColor="@color/principal"
-                    app:layout_constraintStart_toEndOf="@id/imageView11"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="108dp"
-                    android:layout_marginTop="12dp"
-                    android:text="preco"
-                    app:layout_constraintStart_toEndOf="@id/imageView11"
-                    app:layout_constraintTop_toBottomOf="@id/txt_produto" />
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
-        </androidx.cardview.widget.CardView>
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@+id/imageView8"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/logo" />
 
         <TextView
             android:id="@+id/textView16"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
             android:fontFamily="@font/poppins"
-            android:text="Endereço:"
+            android:text="Metodo de entrega:"
+            android:textSize="17sp"
+            app:layout_constraintBottom_toTopOf="@+id/card_entrega"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.055"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/item_carrinho" />
+            app:layout_constraintTop_toBottomOf="@+id/rv_pedidos" />
 
         <androidx.cardview.widget.CardView
-            android:id="@+id/endereco"
+            android:id="@+id/card_entrega"
             android:layout_width="350dp"
             android:layout_height="100dp"
-            android:layout_marginTop="168dp"
+            android:layout_marginTop="40dp"
             android:background="@color/cards"
             android:padding="16dp"
             app:cardBackgroundColor="@color/cards"
             app:cardCornerRadius="8dp"
             app:cardElevation="4dp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.442"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_titulo">
+            app:layout_constraintTop_toBottomOf="@+id/rv_pedidos">
 
             <!-- Envolva os componentes do CardView em um ConstraintLayout -->
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -133,10 +84,12 @@
                 android:layout_height="88dp">
 
                 <TextView
-                    android:id="@+id/txt_endereco"
+                    android:id="@+id/txt_metodo_entrega"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Endereço do usuario"
+                    android:fontFamily="@font/poppins"
+                    android:text="metodo de entrega"
+                    android:textSize="17sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -150,69 +103,25 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="28dp"
-            android:text="Metódo de entrega:"
+            android:text="Metódo do pagamento:"
+            android:textSize="17sp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.065"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/endereco" />
-
-        <androidx.cardview.widget.CardView
-            android:id="@+id/card_entrega"
-            android:layout_width="350dp"
-            android:layout_height="100dp"
-            android:layout_marginTop="336dp"
-            android:background="@color/cards"
-            android:padding="16dp"
-            app:cardBackgroundColor="@color/cards"
-            app:cardCornerRadius="8dp"
-            app:cardElevation="4dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.377"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_titulo">
-
-            <!-- Envolva os componentes do CardView em um ConstraintLayout -->
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="340dp"
-                android:layout_height="88dp">
-
-                <TextView
-                    android:id="@+id/txt_metodo_entrega"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/poppins"
-                    android:text="metodo de entrega"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
-        </androidx.cardview.widget.CardView>
-
-        <TextView
-            android:id="@+id/textView20"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:text="Metódo de pagamento:"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.06"
+            app:layout_constraintHorizontal_bias="0.068"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/card_entrega" />
 
         <androidx.cardview.widget.CardView
             android:id="@+id/card_pagamento"
-            android:layout_width="350dp"
-            android:layout_height="100dp"
-            android:layout_marginTop="500dp"
+            android:layout_width="343dp"
+            android:layout_height="95dp"
+            android:layout_marginTop="436dp"
             android:background="@color/cards"
             android:padding="16dp"
             app:cardBackgroundColor="@color/cards"
             app:cardCornerRadius="8dp"
             app:cardElevation="4dp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.377"
+            app:layout_constraintHorizontal_bias="0.044"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tv_titulo">
 
@@ -227,11 +136,44 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/poppins"
                     android:text="metodo de pagamento"
+                    android:textSize="17sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.cardview.widget.CardView>
 
+        <androidx.cardview.widget.CardView
+            android:id="@+id/card_endereco"
+            android:layout_width="347dp"
+            android:layout_height="104dp"
+            android:layout_marginTop="48dp"
+            android:background="@color/cards"
+            android:padding="16dp"
+            app:cardBackgroundColor="@color/cards"
+            app:cardCornerRadius="8dp"
+            app:cardElevation="4dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.125"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/card_pagamento">
+
+            <!-- Envolva os componentes do CardView em um ConstraintLayout -->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="340dp"
+                android:layout_height="88dp">
+
+                <TextView
+                    android:id="@+id/txt_endereco"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Endereço do usuario"
+                    android:textSize="17sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 
         </androidx.cardview.widget.CardView>
@@ -240,41 +182,67 @@
             android:id="@+id/btn_confirmar_entrega"
             android:layout_width="310dp"
             android:layout_height="73dp"
-            android:layout_marginTop="136dp"
             android:backgroundTint="@color/principal"
             android:fontFamily="@font/poppins"
             android:text="Confirmar"
             android:textSize="25dp"
             app:cornerRadius="10dp"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.495"
+            app:layout_constraintHorizontal_bias="0.425"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/card_pagamento" />
+            app:layout_constraintTop_toBottomOf="@+id/tv_titulo"
+            app:layout_constraintVertical_bias="1.0" />
 
         <TextView
-            android:id="@+id/textView21"
+            android:id="@+id/txt_endereco_final"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="44dp"
-            android:text="Total:"
-            android:textSize="20sp"
-            app:layout_constraintBottom_toTopOf="@+id/btn_confirmar_entrega"
+            android:layout_marginBottom="12dp"
+            android:fontFamily="@font/poppins"
+            android:text="Endereço:"
+            android:textColor="@color/principal"
+            android:textSize="17sp"
+            app:layout_constraintBottom_toTopOf="@+id/card_endereco"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.044"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent" />
 
         <TextView
-            android:id="@+id/textView22"
+            android:id="@+id/textView20"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="64dp"
-            android:fontFamily="@font/poppins"
-            android:text="preco"
-            android:textSize="14sp"
+            android:layout_marginTop="24dp"
+            android:layout_marginBottom="88dp"
+            android:text="Total:"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.85"
-            app:layout_constraintStart_toEndOf="@+id/textView21"
-            app:layout_constraintTop_toBottomOf="@+id/card_pagamento" />
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/card_endereco" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_pedidos"
+            android:layout_width="384dp"
+            android:layout_height="216dp"
+            android:layout_marginTop="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.111"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_titulo" />
+
+        <TextView
+            android:id="@+id/txt_total_final"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="28dp"
+            android:text="preco"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.945"
+            app:layout_constraintStart_toEndOf="@+id/textView20"
+            app:layout_constraintTop_toBottomOf="@+id/card_endereco" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

@@ -1,4 +1,4 @@
-package com.example.cafenaporta;
+package com.example.cafenaporta.telasUsuario;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -12,11 +12,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.view.animation.ScaleAnimation;
 
-import com.example.cafenaporta.carrinho.Carrinho;
+import com.example.cafenaporta.R;
+import com.example.cafenaporta.telasUsuario.carrinho.Carrinho;
 import com.example.cafenaporta.classesAuxiliares.ItemCarrinho;
-import com.example.cafenaporta.database.Pedido;
-import com.example.cafenaporta.singleton.ItemPedidoSingleton;
-import com.example.cafenaporta.singleton.PedidoSingleton;
 import com.example.cafenaporta.singleton.UsuarioSingleton;
 
 public class DetalhesProduto extends AppCompatActivity {
@@ -27,7 +25,7 @@ public class DetalhesProduto extends AppCompatActivity {
     TextView txt_nome_produto, txt_preco_produto;
     EditText txt_descricao;
     Button btn_adicionar_carrinho;
-    int id;
+    long id;
     private boolean isFavorited = false;
     @SuppressLint("MissingInflatedId")
     @Override
@@ -40,17 +38,19 @@ public class DetalhesProduto extends AppCompatActivity {
         img_produto = findViewById(R.id.img_produto);
         txt_descricao = findViewById(R.id.txt_descricao);
         img_back = findViewById(R.id.img_back);
-        btn_adicionar_carrinho = findViewById(R.id.btn_confirmar_entrega);
+        btn_adicionar_carrinho = findViewById(R.id.btn_pedido);
         img_favorito = findViewById(R.id.img_favorito);
 
         Intent intent = getIntent();
+         id = intent.getLongExtra("id", 0);
          imagem = intent.getIntExtra("imagem", 0); // 0 é o valor padrão se a chave não for encontrada
          nome = intent.getStringExtra("nome");
          preco = intent.getDoubleExtra("preco", 0.0); // 0.0 é o valor padrão se a chave não for encontrada
-         id = intent.getIntExtra("id", 0);
+         id = intent.getLongExtra("id", 0);
          String descricao = intent.getStringExtra("descricao");
 
-        ItemCarrinho item = new ItemCarrinho(imagem, nome, preco);
+         System.out.println(" ID DO PRODUTO:::" + id);
+        ItemCarrinho item = new ItemCarrinho(id, imagem, nome, preco);
         img_produto.setImageResource(imagem);
         txt_nome_produto.setText(nome);
         txt_preco_produto.setText(String.format("Preço: R$ %.2f", preco));
@@ -68,13 +68,10 @@ public class DetalhesProduto extends AppCompatActivity {
             Intent intent_carrinho = new Intent(this, Carrinho.class);
 
             // Adicione os dados do produto à Intent
+            intent_carrinho.putExtra("id", id);
             intent_carrinho.putExtra("imagem", imagem);
             intent_carrinho.putExtra("nome", nome);
             intent_carrinho.putExtra("preco", preco);
-            // Inicie a nova atividade com a Intent que contém os dados
-            ItemPedidoSingleton itemPedidoSingleton = ItemPedidoSingleton.getInstance();
-            itemPedidoSingleton.setProdutoId(id);
-            Pedido pedido = PedidoSingleton.getInstance();
             startActivity(intent_carrinho);
         });
 
@@ -91,7 +88,7 @@ public class DetalhesProduto extends AppCompatActivity {
     }
 
     private void toggleFavorite() {
-        ItemCarrinho item = new ItemCarrinho(imagem, nome, preco);
+        ItemCarrinho item = new ItemCarrinho(id, imagem, nome, preco);
         UsuarioSingleton singleton = UsuarioSingleton.getInstance();
         if (!singleton.isFavorito(item)) {
             animateHeart();

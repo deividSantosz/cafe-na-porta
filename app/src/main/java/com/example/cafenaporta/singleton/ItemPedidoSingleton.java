@@ -1,17 +1,24 @@
 package com.example.cafenaporta.singleton;
 
+import com.example.cafenaporta.database.Item_pedido;
+
+import java.util.ArrayList;
+import java.util.List;
+
 public class ItemPedidoSingleton {
 
     private static volatile ItemPedidoSingleton instance;
 
-    private int id;
-    private int pedidoId;
-    private int produtoId;
+    private long id;
+    private long pedidoId;
+    private List<Long> produtoId;
     private int quantidade;
     private Double preco;
 
     private ItemPedidoSingleton() {
         // Evite instanciar a classe diretamente
+        produtoId = new ArrayList<>();
+
     }
 
     public static ItemPedidoSingleton getInstance() {
@@ -25,28 +32,28 @@ public class ItemPedidoSingleton {
         return instance;
     }
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
     }
 
-    public int getPedidoId() {
+    public long getPedidoId() {
         return pedidoId;
     }
 
-    public void setPedidoId(int pedidoId) {
+    public void setPedidoId(long pedidoId) {
         this.pedidoId = pedidoId;
     }
 
-    public int getProdutoId() {
-        return produtoId;
+    public void adicionarProduto(Long produtoId) {
+        this.produtoId.add(produtoId);
     }
 
-    public void setProdutoId(int produtoId) {
-        this.produtoId = produtoId;
+    public List<Long> getProdutosId() {
+        return produtoId;
     }
 
     public int getQuantidade() {
@@ -68,4 +75,5 @@ public class ItemPedidoSingleton {
     public Double calculartotal() {
         return preco*quantidade;
     }
+
 }

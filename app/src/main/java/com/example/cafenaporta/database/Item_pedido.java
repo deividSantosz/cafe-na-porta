@@ -18,12 +18,50 @@ import androidx.room.PrimaryKey;
 public class Item_pedido {
 
     @PrimaryKey(autoGenerate = true)
-    public int id;
-    public int pedidoId;
-    public int produtoId;
+    public long id;
+    public long pedidoId;
+    public long produtoId;
     public int quantidade;
 
     public Double preco;
 
+    public long getId() {
+        return id;
+    }
 
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public long getPedidoId() {
+        return pedidoId;
+    }
+
+    public void setPedidoId(long pedidoId) {
+        this.pedidoId = pedidoId;
+    }
+
+    public long getProdutoId() {
+        return produtoId;
+    }
+
+    public void setProdutoId(long produtoId) {
+        this.produtoId = produtoId;
+    }
+
+    public int getQuantidade() {
+        return quantidade;
+    }
+
+    public void setQuantidade(int quantidade) {
+        this.quantidade = quantidade;
+    }
+
+    public Double getPreco() {
+        return preco;
+    }
+
+    public void setPreco(Double preco) {
+        this.preco = preco;
+    }
 }

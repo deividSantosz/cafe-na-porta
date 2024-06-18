@@ -9,22 +9,20 @@ import java.util.List;
 
 @Dao
 public interface UsuarioDao {
-    @Query("SELECT * from usuario WHERE email=:email AND senha=:senha")
+    @Query("SELECT * FROM usuario WHERE email=:email AND senha=:senha")
     public Usuario getUserLogin(String email, String senha);
 
-    @Query("SELECT * from usuario WHERE email=:email")
+    @Query("SELECT * FROM usuario WHERE email=:email")
     public Usuario getUserCadastro( String email);
 
-    @Query("SELECT * from usuario")
+    @Query("SELECT * FROM usuario")
     public List<Usuario> getAll();
 
-    @Transaction
-    @Query("SELECT * FROM Usuario")
-    List<UsuarioPedido> getUsuariosWithPedidos();
+   @Query("SELECT * FROM usuario WHERE id=:id")
+   public Usuario getUserById(long id);
 
     @Insert
-    public void insereUsuario(Usuario usuario);
+    public long insereUsuario(Usuario usuario);
 
-    @Insert
-    void insertPedido(Pedido pedido);
+
 }

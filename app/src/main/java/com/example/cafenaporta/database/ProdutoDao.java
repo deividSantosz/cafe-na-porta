@@ -18,5 +18,5 @@ public interface ProdutoDao {
     public int getProdutoByID(String nomeProduto);
 
     @Insert
-    void insertProduto(Produto produto);
+    long insertProduto(Produto produto);
 }

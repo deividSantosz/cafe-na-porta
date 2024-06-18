@@ -1,4 +1,4 @@
-package com.example.cafenaporta.telaPrincipal;
+package com.example.cafenaporta.telasUsuario.telaPrincipal;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;

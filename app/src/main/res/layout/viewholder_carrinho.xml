@@ -14,7 +14,7 @@
         android:layout_height="match_parent">
 
         <TextView
-            android:id="@+id/txt_produto"
+            android:id="@+id/txt_nome"
             android:layout_width="246dp"
             android:layout_height="29dp"
             android:layout_marginStart="128dp"

@@ -1,4 +1,4 @@
-package com.example.cafenaporta.telaPrincipal;
+package com.example.cafenaporta.telasUsuario.telaPrincipal;
 
 import android.content.Context;
 import android.content.Intent;
@@ -8,7 +8,7 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.cafenaporta.DetalhesProduto;
+import com.example.cafenaporta.telasUsuario.DetalhesProduto;
 import com.example.cafenaporta.R;
 import com.example.cafenaporta.database.Produto;
 
@@ -53,12 +53,11 @@ public class MenuAdapter extends RecyclerView.Adapter<LineViewHolder> {
             intent.putExtra("preco", listaProdutos.get(position).preco);
             intent.putExtra("descricao", listaProdutos.get(position).descricao);
 
-
+            System.out.println(" ID DO PRODUTO:::" + listaProdutos.get(position).id);
             activityContext.startActivity(intent);
         });
 
     }
-
 
     @Override // retorna a quantidade de elementos na lista de dados
     public int getItemCount() {

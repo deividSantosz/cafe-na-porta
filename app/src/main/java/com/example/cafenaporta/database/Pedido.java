@@ -4,6 +4,7 @@ import androidx.room.Entity;
 import androidx.room.ForeignKey;
 import androidx.room.PrimaryKey;
 
+import java.util.Date;
 import java.util.List;
 
 @Entity (foreignKeys = @ForeignKey(entity = Usuario.class,
@@ -14,7 +15,7 @@ import java.util.List;
 public class Pedido {
 
     @PrimaryKey(autoGenerate = true)
-    public int id;
+    public long id;
 
     public Double total;
 
@@ -22,11 +23,28 @@ public class Pedido {
 
     public String metodo_pagamento;
 
-    public int userId;
+    public long userId;
 
     public String status_pedido;
 
+    public long data;
 
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public long getUserId() {
+        return userId;
+    }
+
+    public void setUserId(long userId) {
+        this.userId = userId;
+    }
 
     public Double getTotal() {
         return total;
@@ -59,4 +77,14 @@ public class Pedido {
     public void setStatus_pedido(String status_pedido) {
         this.status_pedido = status_pedido;
     }
+
+    public long getData() {
+        return data;
+    }
+
+    public void setData(long data) {
+        this.data = data;
+    }
+
+
 }

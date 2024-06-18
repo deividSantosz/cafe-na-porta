@@ -38,6 +38,14 @@ public class CarrinhoSingleton {
         return itensCarrinho;
     }
 
-    // Outros métodos úteis para manipulação do carrinho podem ser adicionados aqui
-}
+    // Método para limpar o carrinho (resetar a lista de itens)
+    public void limparCarrinho() {
+        itensCarrinho.clear();
+    }
 
+    // Método para resetar a instância do Singleton (usado para limpar toda a instância)
+    public static void resetInstance() {
+        instance = null;
+    }
+
+}

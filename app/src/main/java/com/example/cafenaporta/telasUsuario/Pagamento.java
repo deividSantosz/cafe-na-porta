@@ -1,4 +1,4 @@
-package com.example.cafenaporta;
+package com.example.cafenaporta.telasUsuario;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -13,8 +13,10 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.cafenaporta.R;
 import com.example.cafenaporta.singleton.ItemPedidoSingleton;
 import com.example.cafenaporta.singleton.PedidoSingleton;
+import com.example.cafenaporta.telasUsuario.Entrega;
 
 public class Pagamento extends AppCompatActivity {
 
@@ -31,18 +33,16 @@ public class Pagamento extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pagamento);
         txt_total = findViewById(R.id.txt_total_entrega);
-        btn_confirmar = findViewById(R.id.btn_confirmar_entrega);
+        btn_confirmar = findViewById(R.id.btn_confirmar_pagamento);
         metodo_pagamento = findViewById(R.id.rg_metodo_entrega);
         img_voltar = findViewById(R.id.img_voltar);
-
+        System.out.println("ID DO PRODUTO QUE FOI ADICIONADO NO PAGAMENTO:: " + ItemPedidoSingleton.getInstance().getProdutosId());
 
         Intent intent = getIntent();
         Double total = intent.getDoubleExtra("Total", 0.0);
         txt_total.setText(String.format(" R$ %.2f", total));
 
 
-//          Definindo o total no PedidoSingleton
-        PedidoSingleton.getInstance().setTotal(total);
 
 
         btn_confirmar.setOnClickListener((View view) -> {
@@ -56,7 +56,8 @@ public class Pagamento extends AppCompatActivity {
 
                 // Definindo o método de pagamento no PedidoSingleton
                 PedidoSingleton.getInstance().setMetodo_pagamento(opcaoTexto);
-
+                //Definindo o total no PedidoSingleton
+                PedidoSingleton.getInstance().setTotal(total);
                 // Iniciar a atividade de Entrega
                 Intent intent2 = new Intent(this, Entrega.class);
                 intent2.putExtra("precoCalculado", total);
@@ -70,7 +71,6 @@ public class Pagamento extends AppCompatActivity {
         img_voltar.setOnClickListener((View view) -> {
             finish();
         });
-
 
 
     }

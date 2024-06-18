@@ -13,37 +13,43 @@
         android:theme="@style/Theme.CafeNaPorta"
         tools:targetApi="31" >
         <activity
-            android:name=".DetalhesPedido"
+            android:name=".telasMaster.InicioAdmin"
             android:exported="false" />
         <activity
-            android:name=".Entrega"
+            android:name=".telasUsuario.listaPedidos.ListaPedidos"
             android:exported="false" />
         <activity
-            android:name=".Pagamento"
+            android:name=".telasUsuario.DetalhesPedido"
             android:exported="false" />
         <activity
-            android:name=".carrinho.Carrinho"
+            android:name=".telasUsuario.Entrega"
             android:exported="false" />
         <activity
-            android:name=".DetalhesProduto"
+            android:name=".telasUsuario.Pagamento"
             android:exported="false" />
         <activity
-            android:name=".Perfil"
+            android:name=".telasUsuario.carrinho.Carrinho"
+            android:exported="false" />
+        <activity
+            android:name=".telasUsuario.DetalhesProduto"
+            android:exported="false" />
+        <activity
+            android:name=".telasUsuario.Perfil"
             android:exported="false" />
         <activity
             android:name=".Pedidos"
             android:exported="false" />
         <activity
-            android:name=".telaPrincipal.Menu"
+            android:name=".telasUsuario.telaPrincipal.Menu"
             android:exported="false" />
         <activity
-            android:name=".Favoritos"
+            android:name=".telasUsuario.Favoritos"
             android:exported="false" />
         <activity
-            android:name=".Cadastro"
+            android:name=".telasUsuario.Cadastro"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".telasUsuario.MainActivity"
             android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

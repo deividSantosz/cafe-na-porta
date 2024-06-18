@@ -1,4 +1,4 @@
-package com.example.cafenaporta;
+package com.example.cafenaporta.telasUsuario;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -12,15 +12,13 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 
-import com.example.cafenaporta.carrinho.CarrinhoAdapter;
-import com.example.cafenaporta.classesAuxiliares.Favorito;
+import com.example.cafenaporta.R;
+import com.example.cafenaporta.telasUsuario.carrinho.CarrinhoAdapter;
 import com.example.cafenaporta.classesAuxiliares.ItemCarrinho;
-import com.example.cafenaporta.singleton.CarrinhoSingleton;
 import com.example.cafenaporta.singleton.UsuarioSingleton;
-import com.example.cafenaporta.telaPrincipal.Menu;
+import com.example.cafenaporta.telasUsuario.telaPrincipal.Menu;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class Favoritos extends AppCompatActivity {

@@ -1,4 +1,4 @@
-package com.example.cafenaporta;
+package com.example.cafenaporta.telasUsuario;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -14,7 +14,10 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.cafenaporta.R;
+import com.example.cafenaporta.singleton.ItemPedidoSingleton;
 import com.example.cafenaporta.singleton.PedidoSingleton;
+import com.example.cafenaporta.telasUsuario.DetalhesPedido;
 
 public class Entrega extends AppCompatActivity {
     RadioButton rb_entrega;
@@ -35,11 +38,12 @@ public class Entrega extends AppCompatActivity {
         metodo_entrega = findViewById(R.id.rg_metodo_entrega);
         img_voltar = findViewById(R.id.img_voltar);
         txt_total = findViewById(R.id.txt_total_entrega);
-        confirmar_entrega = findViewById(R.id.btn_confirmar_entrega);
+        confirmar_entrega = findViewById(R.id.btn_pedido);
 
+
+        System.out.println("ID DO PRODUTO QUE FOI ADICIONADO NA ENTREGA:: " + ItemPedidoSingleton.getInstance().getProdutosId());
         Intent intent = getIntent();
         Double precoCalculado = intent.getDoubleExtra("precoCalculado", 0.0);
-        System.out.println(precoCalculado);
         txt_total.setText(String.format(" R$ %.2f", precoCalculado));
 
         metodo_entrega.setOnCheckedChangeListener((group, checkedId) -> {

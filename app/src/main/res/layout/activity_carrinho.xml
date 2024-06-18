@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
-    tools:context=".carrinho.Carrinho">
+    tools:context=".telasUsuario.carrinho.Carrinho">
 
     <TextView
         android:id="@+id/txt_carrinho"
@@ -41,7 +41,7 @@
         app:srcCompat="@drawable/baseline_keyboard_backspace_24" />
 
     <Button
-        android:id="@+id/btn_confirmar_entrega"
+        android:id="@+id/btn_confirmar_carrinho"
         android:layout_width="310dp"
         android:layout_height="73dp"
         android:layout_marginBottom="32dp"

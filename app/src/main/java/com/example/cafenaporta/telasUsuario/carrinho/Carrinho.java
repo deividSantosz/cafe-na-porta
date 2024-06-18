@@ -1,4 +1,4 @@
-package com.example.cafenaporta.carrinho;
+package com.example.cafenaporta.telasUsuario.carrinho;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -12,12 +12,12 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.cafenaporta.Pagamento;
+import com.example.cafenaporta.telasUsuario.Pagamento;
 import com.example.cafenaporta.classesAuxiliares.ItemCarrinho;
 import com.example.cafenaporta.R;
 import com.example.cafenaporta.singleton.CarrinhoSingleton;
 import com.example.cafenaporta.singleton.ItemPedidoSingleton;
-import com.example.cafenaporta.telaPrincipal.Menu;
+import com.example.cafenaporta.telasUsuario.telaPrincipal.Menu;
 
 import java.util.List;
 
@@ -28,7 +28,6 @@ public class Carrinho extends AppCompatActivity {
     TextView txt_total;
     Button btn_continuar_comprando, btn_confirmar;
     double total;
-    ItemPedidoSingleton itemPedidoSingleton = ItemPedidoSingleton.getInstance();
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -38,10 +37,11 @@ public class Carrinho extends AppCompatActivity {
         recyclerView = findViewById(R.id.rv_pedidos);
 
         Intent intent = getIntent();
+        Long id = intent.getLongExtra("id" , 0);
         int imagem = intent.getIntExtra("imagem", 0);
         String nome = intent.getStringExtra("nome");
         double preco = intent.getDoubleExtra("preco", 0.0);
-        ItemCarrinho carrinho = new ItemCarrinho(imagem, nome, preco);
+        ItemCarrinho carrinho = new ItemCarrinho(id, imagem, nome, preco);
         List<ItemCarrinho> lista_carrinho = CarrinhoSingleton.getInstance().getItensCarrinho();
         lista_carrinho.add(carrinho);
 
@@ -56,7 +56,7 @@ public class Carrinho extends AppCompatActivity {
         img_back = findViewById(R.id.img_back);
         btn_continuar_comprando = findViewById(R.id.btn_continuar_comprando);
         txt_total = findViewById(R.id.txt_total_entrega);
-        btn_confirmar = findViewById(R.id.btn_confirmar_entrega);
+        btn_confirmar = findViewById(R.id.btn_confirmar_carrinho);
 
         txt_total.setText(String.format(" R$ %.2f", total));
         img_back.setOnClickListener((View view) -> {
@@ -71,11 +71,14 @@ public class Carrinho extends AppCompatActivity {
         btn_confirmar.setOnClickListener((View view) -> {
             int quantidade =0;
             for (ItemCarrinho item : lista_carrinho) {
-               itemPedidoSingleton.setPreco(item.getPreco());
+                ItemPedidoSingleton.getInstance().setPreco(item.getPreco());
                quantidade = quantidade+1;
             }
-            itemPedidoSingleton.setQuantidade(quantidade);
-            itemPedidoSingleton.calculartotal();
+            System.out.println("ID ANTES DE ADICIONAR NO SINGLETON: " + id);
+            ItemPedidoSingleton.getInstance().adicionarProduto(id);
+            System.out.println("SINGLETON COM O ID:::" + ItemPedidoSingleton.getInstance().getProdutosId());
+            ItemPedidoSingleton.getInstance().setQuantidade(quantidade);
+            ItemPedidoSingleton.getInstance().calculartotal();
             Intent intent2 = new Intent(this, Pagamento.class);
             intent2.putExtra("Total", total);
             startActivity(intent2);

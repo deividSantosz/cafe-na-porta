@@ -1,4 +1,4 @@
-package com.example.cafenaporta.carrinho;
+package com.example.cafenaporta.telasUsuario.carrinho;
 
 import android.content.Context;
 import android.view.LayoutInflater;

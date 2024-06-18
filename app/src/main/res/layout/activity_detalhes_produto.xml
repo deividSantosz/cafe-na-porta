@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
-    tools:context=".DetalhesProduto">
+    tools:context=".telasUsuario.DetalhesProduto">
 
     <ImageView
         android:id="@+id/img_produto"
@@ -82,7 +82,7 @@
 
 
     <Button
-        android:id="@+id/btn_confirmar_entrega"
+        android:id="@+id/btn_pedido"
         android:layout_width="346dp"
         android:layout_height="77dp"
         android:layout_marginBottom="44dp"

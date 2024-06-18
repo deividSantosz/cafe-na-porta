@@ -1,4 +1,4 @@
-package com.example.cafenaporta.carrinho;
+package com.example.cafenaporta.telasUsuario.carrinho;
 
 import android.view.View;
 import android.widget.ImageView;
@@ -15,7 +15,7 @@ public class LineViewHolderCarrinho extends RecyclerView.ViewHolder{
     public LineViewHolderCarrinho(@NonNull View itemView) {
         super(itemView);
 
-        txt_produto = itemView.findViewById(R.id.txt_produto);
+        txt_produto = itemView.findViewById(R.id.txt_nome);
         txt_preco = itemView.findViewById(R.id.txt_preco);
         img_do_produto = itemView.findViewById(R.id.img_do_produto);
     }

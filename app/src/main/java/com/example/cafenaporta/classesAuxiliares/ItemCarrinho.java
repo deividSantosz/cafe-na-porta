@@ -1,6 +1,7 @@
 package com.example.cafenaporta.classesAuxiliares;
 
 public class ItemCarrinho {
+    private long produtoId;
     private int imagem;
     private String nome;
     private double preco;
@@ -8,12 +9,19 @@ public class ItemCarrinho {
     public ItemCarrinho() {
 
     }
-    public ItemCarrinho(int imagem, String nome, double preco) {
+    public ItemCarrinho(long produtoId, int imagem, String nome, double preco) {
+        this.produtoId = produtoId;
         this.imagem = imagem;
         this.nome = nome;
         this.preco = preco;
     }
+    public long getProdutoId() {
+        return produtoId;
+    }
 
+    public void setProdutoId(long produtoId) {
+        this.produtoId = produtoId;
+    }
     public int getImagem() {
         return imagem;
     }

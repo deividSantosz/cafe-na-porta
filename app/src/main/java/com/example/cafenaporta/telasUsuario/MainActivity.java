@@ -1,4 +1,4 @@
-package com.example.cafenaporta;
+package com.example.cafenaporta.telasUsuario;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.room.Room;
@@ -9,10 +9,13 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
+import com.example.cafenaporta.R;
 import com.example.cafenaporta.database.Database;
 import com.example.cafenaporta.database.Usuario;
-import com.example.cafenaporta.telaPrincipal.Menu;
+import com.example.cafenaporta.singleton.UserSingleton;
+import com.example.cafenaporta.telasUsuario.telaPrincipal.Menu;
 
 import java.util.List;
 
@@ -33,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
 
         editEmail = findViewById(R.id.text_email);
         editSenha = findViewById(R.id.text_senha);
-        btn_entrar = findViewById(R.id.btn_confirmar_entrega);
+        btn_entrar = findViewById(R.id.btn_pedido);
         btn_cadastro = findViewById(R.id.btn_cadastro);
 
         btn_entrar.setOnClickListener((View view) -> {
@@ -46,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void logar() {
-      /*  if(validarCampos() == false) {
+        if(validarCampos() == false) {
             return;
         }
         String email = editEmail.getText().toString();
@@ -54,7 +57,7 @@ public class MainActivity extends AppCompatActivity {
         if (validarLogin(email, senha) ==false) {
             Toast.makeText(this,"Dados de login incorretos",Toast.LENGTH_LONG).show();
             return;
-        }*/
+        }
         Intent intent = new Intent(this, Menu.class);
         startActivity(intent);
     }
@@ -77,10 +80,12 @@ public class MainActivity extends AppCompatActivity {
                 .fallbackToDestructiveMigration()
                 .build();
         Usuario usuario = db.getUserDao().getUserLogin(email,senha);
-        if (usuario==null) {
+        if (usuario != null) {
+            UserSingleton.getInstance().setUserId(usuario.getId());
+            return true;
+        } else {
             return false;
         }
-        return true;
     }
 
     private void insereDadosUsuario(){
@@ -106,7 +111,6 @@ public class MainActivity extends AppCompatActivity {
         usuario.email = "teste@gmail.com";
         usuario.telefone = "73998432784";
         usuario.senha = "teste123";
-        db.getUserDao().insereUsuario(usuario);
 
     }
 }

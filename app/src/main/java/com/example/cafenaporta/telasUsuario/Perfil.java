@@ -1,4 +1,4 @@
-package com.example.cafenaporta;
+package com.example.cafenaporta.telasUsuario;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -11,7 +11,9 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.cafenaporta.telaPrincipal.Menu;
+import com.example.cafenaporta.R;
+import com.example.cafenaporta.telasUsuario.listaPedidos.ListaPedidos;
+import com.example.cafenaporta.telasUsuario.telaPrincipal.Menu;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class Perfil extends AppCompatActivity {
@@ -52,7 +54,7 @@ public class Perfil extends AppCompatActivity {
 
 
         txtPedido.setOnClickListener((View view) -> {
-            Intent intent = new Intent(this, Pedidos.class);
+            Intent intent = new Intent(this, ListaPedidos.class);
             startActivity(intent);
         });
 

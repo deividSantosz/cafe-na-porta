@@ -40,7 +40,7 @@ public class PedidoSingleton {
         getInstance().metodo_pagamento = metodoPagamento;
     }
 
-    public int getUserId() {
+    public long getUserId() {
         return getInstance().userId;
     }
 

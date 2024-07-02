@@ -27,6 +27,7 @@ public class Menu extends AppCompatActivity {
     public RecyclerView RV_item;
     public BottomNavigationView bottomNavigationView;
     public List<Produto> listaProdutos = new ArrayList<>();
+    public MenuAdapter adapter;
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -34,10 +35,11 @@ public class Menu extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
 
+        searchView = findViewById(R.id.searchView);
         RV_item = findViewById(R.id.RV_itens);
         listaProdutos = ProdutosIniciais();
         GridLayoutManager layoutManager = new GridLayoutManager(this, 2);
-        MenuAdapter adapter = new MenuAdapter(listaProdutos, this);
+        adapter = new MenuAdapter(listaProdutos, this);
         RV_item.setAdapter(adapter);
         RV_item.setLayoutManager(layoutManager);
         bottomNavigationView = findViewById(R.id.bottom_navigation);
@@ -58,8 +60,31 @@ public class Menu extends AppCompatActivity {
                 }
             }
         });
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
 
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                filtrarLista(newText);
+                return true;
+            }
+        });
     }
+
+    private void filtrarLista(String texto) {
+        List<Produto> listaFiltrada = new ArrayList<>();
+        for (Produto produto : listaProdutos) {
+            if (produto.getNome().toLowerCase().contains(texto.toLowerCase()) ||
+                    produto.getDescricao().toLowerCase().contains(texto.toLowerCase())) {
+                listaFiltrada.add(produto);
+            }
+        }
+        adapter.atualizarLista(listaFiltrada);
+    }
+
 
     public List<Produto> ProdutosIniciais() {
         Database db = Room.databaseBuilder(getApplicationContext(), Database.class, "Cafe na porta BD")
@@ -75,7 +100,7 @@ public class Menu extends AppCompatActivity {
             cappucinoAvela.nome = "Cappucino com Avelã";
             cappucinoAvela.descricao = "Confere o real autêntico sabor do café com um toque de avelã. " +
                     "Com formulação rica em leite integral e sem corantes, tem ótimo rendimento, cremosidade e textura aveludada.";
-            cappucinoAvela.imagem = R.drawable.cappucino_avela3;
+            // cappucinoAvela.imagem = R.drawable.cappucino_avela3;
             cappucinoAvela.preco = 10.00;
 
             Produto cappucinoComChocolate = new Produto();
@@ -83,7 +108,7 @@ public class Menu extends AppCompatActivity {
             cappucinoComChocolate.nome = "Cappucino com chocolate";
             cappucinoComChocolate.descricao = "O sabor é doce, com suaves notas de café e uma pitada de canela que irá conquistar seu paladar. " +
                     "Ideal para uma pausa para o coffee. Aproveite!";
-            cappucinoComChocolate.imagem = R.drawable.cappucino_com_chocolate3;
+             cappucinoComChocolate.imagem = R.drawable.cappucino_com_chocolate3;
             cappucinoComChocolate.preco = 15.00;
 
             Produto cappucinoCremeso = new Produto();
@@ -91,7 +116,7 @@ public class Menu extends AppCompatActivity {
             cappucinoCremeso.nome = "Cappucino cremoso";
             cappucinoCremeso.descricao = "O Cappuccino Amiste Café apresenta uma formulação exclusiva, " +
                     "cuidadosamente desenvolvida para proporcionar um cappuccino saboroso e com textura cremosa. ";
-            cappucinoCremeso.imagem = R.drawable.cappucino_cremoso2;
+             cappucinoCremeso.imagem = R.drawable.cappucino_cremoso2;
             cappucinoCremeso.preco = 11.00;
 
             Produto cappucinoBanana = new Produto();

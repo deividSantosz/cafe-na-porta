@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/filtro_preco"
+        android:title="Filtrar por Preço" />
+    <item
+        android:id="@+id/filtro_data"
+        android:title="Filtrar por Data" />
+</menu>

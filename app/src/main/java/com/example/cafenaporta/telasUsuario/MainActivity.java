@@ -15,6 +15,7 @@ import com.example.cafenaporta.R;
 import com.example.cafenaporta.database.Database;
 import com.example.cafenaporta.database.Usuario;
 import com.example.cafenaporta.singleton.UserSingleton;
+import com.example.cafenaporta.telasMaster.InicioAdmin;
 import com.example.cafenaporta.telasUsuario.telaPrincipal.Menu;
 
 import java.util.List;
@@ -58,6 +59,11 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(this,"Dados de login incorretos",Toast.LENGTH_LONG).show();
             return;
         }
+        if(email.equals("master123@gmail.com") && senha.equals("master123")) {
+            Intent intent = new Intent(this, InicioAdmin.class);
+            startActivity(intent);
+            return;
+        }
         Intent intent = new Intent(this, Menu.class);
         startActivity(intent);
     }
@@ -95,7 +101,7 @@ public class MainActivity extends AppCompatActivity {
                 .build();
         List<Usuario> listaUsuarios = db.getUserDao().getAll();
         if (!listaUsuarios.isEmpty()) {
-            return; // abandona
+            return;
         }
 
         Usuario master = new Usuario();

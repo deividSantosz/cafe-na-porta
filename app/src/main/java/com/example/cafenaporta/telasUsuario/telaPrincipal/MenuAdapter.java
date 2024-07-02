@@ -20,11 +20,13 @@ import java.util.List;
  * bem como o comportamento geral dos viewholders*/
 public class MenuAdapter extends RecyclerView.Adapter<LineViewHolder> {
     // lista global de entidade
-    private final List<Produto> listaProdutos;
+
+    private  List<Produto> listaProdutos;
     private Context activityContext;
 
     // contrutor que recebe a lista de entidades
-    public MenuAdapter(List<Produto> listaProdutos, Context activityContext){
+    public MenuAdapter( List<Produto> listaProdutos, Context activityContext){
+       // this.listaProdutosCompleta = listaProdutosCompleta;
         this.listaProdutos = listaProdutos;
         this.activityContext=activityContext;
     }
@@ -63,5 +65,12 @@ public class MenuAdapter extends RecyclerView.Adapter<LineViewHolder> {
     public int getItemCount() {
         if(listaProdutos==null) return 0;
         return listaProdutos.size();
+    }
+
+
+
+    public void atualizarLista(List<Produto> listaFiltrada) {
+        this.listaProdutos = listaFiltrada;
+        notifyDataSetChanged();
     }
 }

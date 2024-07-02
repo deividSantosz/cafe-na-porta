@@ -97,6 +97,7 @@ public class DetalhesPedido extends AppCompatActivity {
                 pedido.setStatus_pedido("Em preparação");
                 pedido.setTotal(PedidoSingleton.getInstance().getTotal());
                 pedido.setUserId(UserSingleton.getInstance().getUserId());
+
                 long timestamp = System.currentTimeMillis();
                 pedido.setData(timestamp);
                 Long pedido_id = db.getPedidoDao().insertPedido(pedido);

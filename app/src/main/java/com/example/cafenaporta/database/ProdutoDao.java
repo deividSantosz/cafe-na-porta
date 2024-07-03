@@ -16,7 +16,8 @@ public interface ProdutoDao {
     public List<Produto> getProdutoByNome(String nomeProduto);
     @Query("SELECT id FROM Produto WHERE nome = :nomeProduto")
     public int getProdutoByID(String nomeProduto);
-
+    @Query("DELETE FROM Produto")
+    void deleteAll();
     @Insert
     long insertProduto(Produto produto);
 }

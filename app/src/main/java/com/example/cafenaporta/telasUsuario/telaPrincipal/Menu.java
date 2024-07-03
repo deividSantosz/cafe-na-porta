@@ -93,14 +93,14 @@ public class Menu extends AppCompatActivity {
                 .build();
 
         List<Produto> list = db.getProdutoDao().getAll();
-
+      //  db.getProdutoDao().deleteAll();
         if (list.isEmpty()) {
             Produto cappucinoAvela = new Produto();
             cappucinoAvela.categoria = "cappucino";
             cappucinoAvela.nome = "Cappucino com Avelã";
             cappucinoAvela.descricao = "Confere o real autêntico sabor do café com um toque de avelã. " +
                     "Com formulação rica em leite integral e sem corantes, tem ótimo rendimento, cremosidade e textura aveludada.";
-            // cappucinoAvela.imagem = R.drawable.cappucino_avela3;
+             cappucinoAvela.imagem = R.drawable.cappucino_avela3;
             cappucinoAvela.preco = 10.00;
 
             Produto cappucinoComChocolate = new Produto();

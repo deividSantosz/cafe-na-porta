@@ -34,7 +34,7 @@ public class Cadastro extends AppCompatActivity {
         btnCadastrar = findViewById(R.id.btnCadastrar);
 
         textlogin.setOnClickListener((View view ) -> {
-            Intent intent = new Intent(this, MainActivity.class);
+            Intent intent = new Intent(this, Login.class);
             startActivity(intent);
         });
 

@@ -20,6 +20,7 @@ import com.example.cafenaporta.database.Database;
 import com.example.cafenaporta.singleton.UserSingleton;
 import com.example.cafenaporta.telasUsuario.Favoritos;
 import com.example.cafenaporta.telasUsuario.Perfil;
+import com.example.cafenaporta.telasUsuario.telaPrincipal.Menu;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.util.Collections;
@@ -28,7 +29,7 @@ import java.util.List;
 
 public class ListaPedidos extends AppCompatActivity {
 
-    ImageView img_filtro;
+    ImageView img_filtro, img_back_lista;
     RecyclerView rv_lista_pedidos;
     public BottomNavigationView bottomNavigationView;
     private ListaPedidosAdapter adapter;
@@ -47,6 +48,7 @@ public class ListaPedidos extends AppCompatActivity {
                 .build();
 
         img_filtro = findViewById(R.id.img_filtros);
+        img_back_lista = findViewById(R.id.img_back_lista);
         rv_lista_pedidos = findViewById(R.id.rv_lista_pedidos);
 
         // Obter o ID do usuário a partir do Singleton
@@ -79,6 +81,11 @@ public class ListaPedidos extends AppCompatActivity {
         // Configurar o clique na imagem de filtro para mostrar o PopupMenu
         img_filtro.setOnClickListener((View view) -> {
             mostrarMenuDeFiltros(view);
+        });
+
+        img_back_lista.setOnClickListener((View view) -> {
+            Intent intent = new Intent(ListaPedidos.this, Perfil.class);
+            startActivity(intent);
         });
     }
 

@@ -14,5 +14,4 @@
         android:id="@+id/navigation_perfil"
         android:icon="@drawable/ic_perfil"
         android:title="Perfil"/>
-
 </menu>

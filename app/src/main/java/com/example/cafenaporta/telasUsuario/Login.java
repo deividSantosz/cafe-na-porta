@@ -20,7 +20,7 @@ import com.example.cafenaporta.telasUsuario.telaPrincipal.Menu;
 
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity {
+public class Login extends AppCompatActivity {
 
     EditText editEmail;
     EditText editSenha;
@@ -55,7 +55,7 @@ public class MainActivity extends AppCompatActivity {
         }
         String email = editEmail.getText().toString();
         String senha = editSenha.getText().toString();
-        if (validarLogin(email, senha) ==false) {
+        if (validarLogin(email, senha) == false) {
             Toast.makeText(this,"Dados de login incorretos",Toast.LENGTH_LONG).show();
             return;
         }
@@ -89,7 +89,8 @@ public class MainActivity extends AppCompatActivity {
         if (usuario != null) {
             UserSingleton.getInstance().setUserId(usuario.getId());
             return true;
-        } else {
+        }
+        else {
             return false;
         }
     }

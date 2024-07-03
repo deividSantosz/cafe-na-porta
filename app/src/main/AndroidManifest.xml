@@ -49,7 +49,7 @@
             android:name=".telasUsuario.Cadastro"
             android:exported="false" />
         <activity
-            android:name=".telasUsuario.MainActivity"
+            android:name=".telasUsuario.Login"
             android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

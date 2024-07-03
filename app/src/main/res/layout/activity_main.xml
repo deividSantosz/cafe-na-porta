@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="#FFFFFF"
     android:backgroundTint="@color/white"
-    tools:context=".telasUsuario.MainActivity">
+    tools:context=".telasUsuario.Login">
 
     <TextView
         android:id="@+id/textView"

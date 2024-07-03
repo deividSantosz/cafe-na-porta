@@ -26,7 +26,7 @@
         android:fontFamily="@font/poppins_bold"
         android:text="Nome do produto"
         android:textColor="@color/principal"
-        android:textSize="30sp"
+        android:textSize="25sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
